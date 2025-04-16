@@ -1,0 +1,13 @@
+.weather-display {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    background-color: #f0f8ff;
+    display: inline-block;
+    text-align: left;
+  }
+  
+  .weather-display h2 {
+    margin-top: 0;
+  }
