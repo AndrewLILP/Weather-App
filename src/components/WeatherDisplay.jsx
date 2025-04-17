@@ -8,6 +8,7 @@
 
 import React from 'react';
 import WeatherIcon from './WeatherIcon';
+import './WeatherDisplay.css'; // Make sure CSS is imported
 
 function WeatherDisplay({ data, unit }) {
     const tempUnit = unit === 'metric' ? '°C' : '°F';
@@ -31,62 +32,65 @@ function WeatherDisplay({ data, unit }) {
         }
     };
     
-    // Get weather icon URL
-    const iconUrl = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
-    
     return (
-        <div className="bg-white/30 dark:bg-gray-700/30 rounded-lg p-6 mb-6 backdrop-blur-md shadow-md">
-            <div className="flex flex-col md:flex-row justify-between items-center mb-4">
-                <h2 className="text-2xl font-bold text-gray-800 dark:text-white">{data.name}, {data.sys.country}</h2>
-                <div className="flex items-center">
-                    <WeatherIcon 
-                        condition={data.weather[0].description}
-                        size="lg"
-                    />
-                    <span className={`text-4xl font-bold ${getTempColorClass()}`}>
+        <div className="weather-display">
+            <h2 className="location-header">{data.name}, {data.sys.country}</h2>
+            <h3 className="today-header">Today's Weather</h3>
+            
+            <div className="weather-cards">
+                {/* Current Temperature Card */}
+                <div className="weather-card">
+                    <p className="weather-card-label">Current</p>
+                    <div className="weather-card-icon">
+                        <WeatherIcon 
+                            condition={data.weather[0].description}
+                            size="sm"
+                        />
+                    </div>
+                    <p className={`weather-card-value ${getTempColorClass()}`}>
                         {Math.round(data.main.temp)}{tempUnit}
-                    </span>
+                    </p>
+                    <p className="weather-card-description">
+                        {data.weather[0].description}
+                    </p>
                 </div>
-            </div>
-            
-            <p className="text-lg mb-2 text-gray-700 dark:text-gray-200 capitalize">
-                {data.weather[0].description}
-            </p>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
-                <div className="bg-white/50 dark:bg-gray-600/50 p-3 rounded-lg shadow">
-                    <p className="text-sm text-gray-500 dark:text-gray-300">Feels Like</p>
-                    <p className="text-xl font-semibold text-gray-800 dark:text-white">
+                
+                {/* Feels Like Card */}
+                <div className="weather-card">
+                    <p className="weather-card-label">Feels Like</p>
+                    <p className="weather-card-value">
                         {Math.round(data.main.feels_like)}{tempUnit}
                     </p>
                 </div>
                 
-                <div className="bg-white/50 dark:bg-gray-600/50 p-3 rounded-lg shadow">
-                    <p className="text-sm text-gray-500 dark:text-gray-300">Humidity</p>
-                    <p className="text-xl font-semibold text-gray-800 dark:text-white">
+                {/* Humidity Card */}
+                <div className="weather-card">
+                    <p className="weather-card-label">Humidity</p>
+                    <p className="weather-card-value">
                         {data.main.humidity}%
                     </p>
                 </div>
                 
-                <div className="bg-white/50 dark:bg-gray-600/50 p-3 rounded-lg shadow">
-                    <p className="text-sm text-gray-500 dark:text-gray-300">Wind Speed</p>
-                    <p className="text-xl font-semibold text-gray-800 dark:text-white">
+                {/* Wind Speed Card */}
+                <div className="weather-card">
+                    <p className="weather-card-label">Wind Speed</p>
+                    <p className="weather-card-value">
                         {data.wind.speed} {windUnit}
                     </p>
                 </div>
-            </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-                <div className="bg-white/50 dark:bg-gray-600/50 p-3 rounded-lg shadow">
-                    <p className="text-sm text-gray-500 dark:text-gray-300">Min/Max</p>
-                    <p className="text-xl font-semibold text-gray-800 dark:text-white">
+                {/* Min/Max Card */}
+                <div className="weather-card">
+                    <p className="weather-card-label">Min/Max</p>
+                    <p className="weather-card-value">
                         {Math.round(data.main.temp_min)}{tempUnit} / {Math.round(data.main.temp_max)}{tempUnit}
                     </p>
                 </div>
                 
-                <div className="bg-white/50 dark:bg-gray-600/50 p-3 rounded-lg shadow">
-                    <p className="text-sm text-gray-500 dark:text-gray-300">Pressure</p>
-                    <p className="text-xl font-semibold text-gray-800 dark:text-white">
+                {/* Pressure Card */}
+                <div className="weather-card">
+                    <p className="weather-card-label">Pressure</p>
+                    <p className="weather-card-value">
                         {data.main.pressure} hPa
                     </p>
                 </div>

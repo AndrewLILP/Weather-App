@@ -1,19 +1,85 @@
+/* Modern styles for forecast component with vibrant colors */
 .forecast {
   margin-top: 2rem;
 }
 
 .forecast-cards {
   display: flex;
-  justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
+  overflow-x: auto;
+  gap: 0.75rem;
+  padding-bottom: 0.5rem;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.forecast-cards::-webkit-scrollbar {
+  display: none;
 }
 
 .forecast-card {
-  border: 1px solid #ccc;
+  border: 1px solid rgba(255, 255, 255, 0.3);
   padding: 1rem;
-  border-radius: 8px;
-  background-color: #e0f7fa;
-  width: 120px;
+  border-radius: 0.5rem;
+  background-color: rgba(224, 247, 250, 0.8);  /* Light blue background */
+  width: 8rem;
+  flex-shrink: 0;
   text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.forecast-card:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+  background-color: rgba(224, 247, 250, 0.9);  /* Slightly darker on hover */
+}
+
+/* Alternate card colors for visual interest */
+.forecast-card:nth-child(2n) {
+  background-color: rgba(209, 236, 241, 0.8);
+}
+
+.forecast-card:nth-child(3n) {
+  background-color: rgba(187, 222, 251, 0.8);
+}
+
+.forecast-card:nth-child(4n) {
+  background-color: rgba(179, 229, 252, 0.8);
+}
+
+.forecast-card:nth-child(5n) {
+  background-color: rgba(207, 216, 220, 0.8);
+}
+
+/* Text color classes */
+.text-blue-700 { color: #1d4ed8; }
+.text-blue-500 { color: #3b82f6; }
+.text-green-500 { color: #22c55e; }
+.text-orange-400 { color: #fb923c; }
+.text-red-500 { color: #ef4444; }
+
+/* Dark mode overrides */
+@media (prefers-color-scheme: dark) {
+  .forecast-card {
+    background-color: rgba(25, 118, 210, 0.4);
+    border-color: rgba(66, 165, 245, 0.3);
+    color: white;
+  }
+  
+  .forecast-card:nth-child(2n) {
+    background-color: rgba(21, 101, 192, 0.4);
+  }
+  
+  .forecast-card:nth-child(3n) {
+    background-color: rgba(30, 136, 229, 0.4);
+  }
+  
+  .forecast-card:nth-child(4n) {
+    background-color: rgba(66, 165, 245, 0.4);
+  }
+  
+  .forecast-card:nth-child(5n) {
+    background-color: rgba(100, 181, 246, 0.4);
+  }
 }

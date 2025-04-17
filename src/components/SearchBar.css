@@ -1,13 +1,42 @@
-.search-bar {
-    margin-bottom: 1rem;
-  }
-  
-  .search-bar input {
-    padding: 0.5rem;
-    width: 200px;
-    margin-right: 0.5rem;
-  }
-  
-  .search-bar button {
-    padding: 0.5rem 1rem;
-  }
+/**
+ * Weather Forecast App - Search Bar Component
+ * src/components/SearchBar.jsx
+ * 
+ * This component provides a form for users to search for cities
+ * to display weather information.
+ */
+
+ import React, { useState } from 'react';
+ import './SearchBar.css'; // Make sure CSS is imported
+ 
+ function SearchBar({ onSearch }) {
+   const [city, setCity] = useState('');
+ 
+   const handleSubmit = (e) => {
+     e.preventDefault();
+     if (city.trim()) onSearch(city);
+   };
+ 
+   return (
+     <div className="search-bar">
+       <form onSubmit={handleSubmit}>
+         <input
+           type="text"
+           placeholder="Search for a city..."
+           value={city}
+           onChange={(e) => setCity(e.target.value)}
+           aria-label="City name"
+         />
+         <button 
+           type="submit"
+           aria-label="Search"
+           disabled={!city.trim()}
+         >
+           Search
+         </button>
+       </form>
+     </div>
+   );
+ }
+ 
+ export default SearchBar;

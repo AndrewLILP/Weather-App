@@ -8,6 +8,7 @@
 
 import React from 'react';
 import WeatherIcon from './WeatherIcon';
+import './Forecast.css'; // Make sure CSS is imported
 
 function Forecast({ data, unit }) {
   const tempUnit = unit === 'metric' ? '°C' : '°F';
@@ -37,16 +38,13 @@ function Forecast({ data, unit }) {
   };
 
   return (
-    <div className="bg-white/30 dark:bg-gray-700/30 rounded-lg p-6 backdrop-blur-md shadow-md">
+    <div className="forecast">
       <h3 className="text-xl font-bold mb-4 text-gray-800 dark:text-white">5-Day Forecast</h3>
-      <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+      
+      <div className="forecast-cards">
         {data.map((item, index) => {
-          const iconUrl = `https://openweathermap.org/img/wn/${item.weather[0].icon}.png`;
           return (
-            <div 
-              key={index} 
-              className="bg-white/50 dark:bg-gray-600/50 rounded-lg p-3 flex flex-col items-center shadow-sm hover:shadow-md transition-shadow duration-300"
-            >
+            <div key={index} className="forecast-card">
               <p className="font-semibold text-gray-700 dark:text-gray-200">
                 {getWeekday(item.dt_txt)}
               </p>
@@ -56,7 +54,7 @@ function Forecast({ data, unit }) {
               <div className="my-2">
                 <WeatherIcon 
                   condition={item.weather[0].description}
-                  size="md"
+                  size="sm"
                 />
               </div>
               <p className={`text-lg font-bold ${getTempColorClass(item.main.temp)}`}>

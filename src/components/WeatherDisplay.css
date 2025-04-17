@@ -1,13 +1,189 @@
+/* Modern styles for weather display component with all information in cards */
 .weather-display {
-    border: 1px solid #ddd;
-    padding: 1rem;
-    border-radius: 8px;
-    margin-top: 1rem;
-    background-color: #f0f8ff;
-    display: inline-block;
-    text-align: left;
+  border: 1px solid rgba(186, 217, 94, 0.2); // this is a placeholder color
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(to bottom right, rgba(0, 247, 250, 0.6), rgba(179, 229, 252, 0.5));
+  width: 100%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8px);
+}
+
+.location-header {
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  color: #1f2937;
+}
+
+.today-header {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #4b5563;
+}
+
+.weather-cards {
+  display: flex;
+  overflow-x: auto;
+  gap: 0.75rem;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.weather-cards::-webkit-scrollbar {
+  display: none;
+}
+
+.weather-card {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.65);
+  min-width: 8rem;
+  flex-shrink: 0;
+  flex-grow: 1;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.weather-card:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Alternate card colors for visual interest */
+.weather-card:nth-child(2n) {
+  background-color: rgba(236, 254, 255, 0.7);
+}
+
+.weather-card:nth-child(3n) {
+  background-color: rgba(224, 242, 254, 0.7);
+}
+
+.weather-card:nth-child(4n) {
+  background-color: rgba(186, 230, 253, 0.7);
+}
+
+.weather-card:nth-child(5n) {
+  background-color: rgba(219, 234, 254, 0.7);
+}
+
+.weather-card:nth-child(6n) {
+  background-color: rgba(199, 234, 254, 0.7);
+}
+
+.weather-card-label {
+  font-size: 0.875rem;
+  color: #3b82f6;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+  margin-top: 0;
+}
+
+.weather-card-icon {
+  display: flex;
+  justify-content: center;
+  margin: 0.5rem 0;
+}
+
+.weather-card-value {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0.25rem 0;
+}
+
+.weather-card-description {
+  font-size: 0.75rem;
+  color: #4b5563;
+  text-transform: capitalize;
+  margin: 0.25rem 0 0 0;
+}
+
+/* Color classes for temperatures */
+.text-blue-700 { color: #1d4ed8; }
+.text-blue-500 { color: #3b82f6; }
+.text-green-500 { color: #22c55e; }
+.text-orange-400 { color: #fb923c; }
+.text-red-500 { color: #ef4444; }
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .weather-cards {
+    gap: 0.5rem;
   }
   
-  .weather-display h2 {
-    margin-top: 0;
+  .weather-card {
+    min-width: 7rem;
+    padding: 0.75rem;
   }
+  
+  .weather-card-value {
+    font-size: 1.125rem;
+  }
+}
+
+/* Dark mode overrides */
+@media (prefers-color-scheme: dark) {
+  .weather-display {
+    background: linear-gradient(to bottom right, rgba(30, 64, 175, 0.4), rgba(37, 99, 235, 0.3));
+    border-color: rgba(59, 130, 246, 0.3);
+  }
+  
+  .location-header {
+    color: white;
+  }
+  
+  .today-header {
+    color: #e5e7eb;
+  }
+  
+  .weather-card {
+    background-color: rgba(59, 130, 246, 0.2);
+    border: 1px solid rgba(96, 165, 250, 0.2);
+  }
+  
+  .weather-card:nth-child(2n) {
+    background-color: rgba(37, 99, 235, 0.2);
+  }
+  
+  .weather-card:nth-child(3n) {
+    background-color: rgba(29, 78, 216, 0.2);
+  }
+  
+  .weather-card:nth-child(4n) {
+    background-color: rgba(30, 64, 175, 0.2);
+  }
+  
+  .weather-card:nth-child(5n) {
+    background-color: rgba(30, 58, 138, 0.2);
+  }
+  
+  .weather-card:nth-child(6n) {
+    background-color: rgba(23, 37, 84, 0.2);
+  }
+  
+  .weather-card-label {
+    color: #93c5fd;
+  }
+  
+  .weather-card-value {
+    color: white;
+  }
+  
+  .weather-card-description {
+    color: #d1d5db;
+  }
+}

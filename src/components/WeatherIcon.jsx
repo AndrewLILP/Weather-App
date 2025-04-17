@@ -9,12 +9,12 @@
 import React from 'react';
 
 function WeatherIcon({ condition, size = 'md' }) {
-  // Map sizes to Tailwind classes
+  // Map sizes to Tailwind classes - adjusted sizes to be smaller overall
   const sizeClasses = {
-    sm: 'w-8 h-8',
-    md: 'w-12 h-12',
-    lg: 'w-16 h-16',
-    xl: 'w-24 h-24'
+    sm: 'w-6 h-6',
+    md: 'w-8 h-8',
+    lg: 'w-12 h-12',
+    xl: 'w-16 h-16'
   };
   
   // Get proper size class
@@ -30,6 +30,7 @@ function WeatherIcon({ condition, size = 'md' }) {
         xmlns="http://www.w3.org/2000/svg" 
         viewBox="0 0 24 24" 
         className={`${iconClass} text-yellow-400`}
+        aria-label="Clear or sunny weather"
       >
         <circle cx="12" cy="12" r="5" fill="currentColor" />
         <path 
@@ -49,6 +50,7 @@ function WeatherIcon({ condition, size = 'md' }) {
         xmlns="http://www.w3.org/2000/svg" 
         viewBox="0 0 24 24" 
         className={`${iconClass} text-gray-400`}
+        aria-label="Cloudy weather"
       >
         <path 
           fill="currentColor" 
@@ -69,6 +71,7 @@ function WeatherIcon({ condition, size = 'md' }) {
         xmlns="http://www.w3.org/2000/svg" 
         viewBox="0 0 24 24" 
         className={`${iconClass} text-blue-500`}
+        aria-label="Rainy weather"
       >
         <path 
           fill="#9CA3AF" 
@@ -95,6 +98,7 @@ function WeatherIcon({ condition, size = 'md' }) {
         xmlns="http://www.w3.org/2000/svg" 
         viewBox="0 0 24 24" 
         className={`${iconClass}`}
+        aria-label="Thunderstorm weather"
       >
         <path 
           fill="#9CA3AF" 
@@ -119,6 +123,7 @@ function WeatherIcon({ condition, size = 'md' }) {
         xmlns="http://www.w3.org/2000/svg" 
         viewBox="0 0 24 24" 
         className={`${iconClass} text-blue-200`}
+        aria-label="Snowy weather"
       >
         <path 
           fill="#9CA3AF" 
@@ -144,6 +149,7 @@ function WeatherIcon({ condition, size = 'md' }) {
         xmlns="http://www.w3.org/2000/svg" 
         viewBox="0 0 24 24" 
         className={`${iconClass} text-gray-300`}
+        aria-label="Misty or foggy weather"
       >
         <path 
           stroke="currentColor" 
@@ -161,6 +167,7 @@ function WeatherIcon({ condition, size = 'md' }) {
       xmlns="http://www.w3.org/2000/svg" 
       viewBox="0 0 24 24" 
       className={`${iconClass} text-gray-400`}
+      aria-label="Weather condition"
     >
       <circle cx="12" cy="12" r="6" fill="currentColor" />
       <path 

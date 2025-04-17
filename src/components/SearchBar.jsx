@@ -17,27 +17,35 @@ function SearchBar({ onSearch }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex w-full md:w-auto">
-      <input
-        type="text"
-        placeholder="Enter city name"
-        value={city}
-        onChange={(e) => setCity(e.target.value)}
-        className="w-full px-4 py-2 rounded-l-lg border-2 border-gray-300 
-                  focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent
-                  dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-        aria-label="City name"
-      />
-      <button 
-        type="submit"
-        className="bg-blue-500 hover:bg-blue-600 text-white font-semibold 
-                 py-2 px-4 rounded-r-lg transition-colors duration-300
-                 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-        aria-label="Search"
+    <div className="w-full max-w-md mx-auto mb-6">
+      <form 
+        onSubmit={handleSubmit} 
+        className="flex w-full relative shadow-lg rounded-full overflow-hidden"
       >
-        Search
-      </button>
-    </form>
+        <input
+          type="text"
+          placeholder="Search for a city..."
+          value={city}
+          onChange={(e) => setCity(e.target.value)}
+          className="w-full px-6 py-3 rounded-full border-0
+                  focus:outline-none focus:ring-2 focus:ring-blue-500
+                  dark:bg-gray-800 dark:text-white text-gray-700
+                  placeholder-gray-400 dark:placeholder-gray-500"
+          aria-label="City name"
+        />
+        <button 
+          type="submit"
+          className="absolute right-0 top-0 bottom-0 bg-blue-500 hover:bg-blue-600 
+                 text-white font-medium px-6 transition-colors duration-300
+                 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2
+                 disabled:opacity-50 disabled:cursor-not-allowed"
+          aria-label="Search"
+          disabled={!city.trim()}
+        >
+          Search
+        </button>
+      </form>
+    </div>
   );
 }
 
