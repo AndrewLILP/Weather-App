@@ -20,14 +20,49 @@
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+  justify-content: center;
+  align-items: center;
   min-width: 320px;
   min-height: 100vh;
-  background-image: url('https://source.unsplash.com/1600x900/?sky');
+  background-image: url('https://source.unsplash.com/1600x900/?blue,sky');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
+}
+
+/* Custom background classes with blue color scheme */
+.bg-blue-200 {
+  background-color: #bfdbfe !important; /* Light blue */
+}
+
+.bg-blue-300 {
+  background-color: #93c5fd !important; /* Medium light blue */
+}
+
+.bg-blue-500 {
+  background-color: #3b82f6 !important; /* Medium blue */
+}
+
+.bg-blue-700 {
+  background-color: #1d4ed8 !important; /* Medium dark blue */
+}
+
+.bg-blue-900 {
+  background-color: #1e3a8a !important; /* Dark blue */
+}
+
+/* Center all content by default */
+.content-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Transition effects for smoother UI */
+.transition-all {
+  transition: all 0.3s ease;
 }
 
 @media (prefers-color-scheme: light) {
