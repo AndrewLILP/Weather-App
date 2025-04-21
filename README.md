@@ -57,7 +57,7 @@ Replace `your_api_key_here` with the API key you generated in the previous step.
 ### 5. Start the development server
 
 ```bash
-npm start
+npm run dev
 ```
 
 The app will be available at:
