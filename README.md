@@ -60,7 +60,10 @@ Replace `your_api_key_here` with the API key you generated in the previous step.
 npm start
 ```
 
-The app will be available at [http://localhost:3000](http://localhost:3000).
+The app will be available at:
+
+http://localhost:5173/
+
 
 ## Building for Production
 
